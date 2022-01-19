@@ -12,7 +12,7 @@ Each Intent belongs to a folder. And it has some central specifications and an i
 
 You can get the sense of supported intent by reading the folder name inside which you will find schema files defining all the options available in that intent.
 
-## Schema level configurations
+## Stack level configurations
 ### Filename 
 stack.json
 ### Schema Location
