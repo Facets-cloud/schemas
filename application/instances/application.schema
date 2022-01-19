@@ -184,20 +184,25 @@
         },
         "loadbalancing": {
           "type": "object",
+          "description": "Is this application exposed to an Loadbalancer (defined as ingress intent)",
           "properties": {
             "rules": {
               "type": "array",
+              "description": "List of rules",
               "items": {
                 "type": "object",
                 "properties": {
                   "ingress": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Which ingress to add rule to"
                   },
                   "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Path in which this application listens to. e.g. /api/"
                   },
                   "portName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of Port where this request should come to"
                   }
                 },
                 "required": [
@@ -214,25 +219,29 @@
         },
         "permission": {
           "type": "array",
+          "description": "Which other resources/ intents does this application need permission for",
           "items": [
             {
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Unique name to refer this permission"
                 },
                 "resourceType": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Which resourcetype/ intent type this permission is for. e.g. mysql/ s3"
                 },
                 "resourceName": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Which resource/ intent this permission is for. Name of the json without the extension"
                 },
                 "permission": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Canned ACLs"
                 }
               },
               "required": [
-                "name",
                 "resourceType",
                 "resourceName",
                 "permission"
@@ -242,27 +251,83 @@
         },
         "env": {
           "type": "object",
+          "description": "Manage Environment variables",
           "properties": {
-            "ENVVAR_NAME": {
+            "StaticVariable": {
               "type": "object",
+              "description": "Variable which has a static value. You can override this per environment",
               "properties": {
                 "type": {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "static"
+                  ],
+                  "description": "This is a Static variable"
+                },
+                "default": {
+                  "type": "string",
+                  "description": "Default value for this variable"
+                }
+              },
+              "required": [
+                "type",
+                "default"
+              ]
+            },
+            "DynamicVariable": {
+              "type": "object",
+              "description": "Variable which contains reference to other resources created by Facets",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "dynamic"
+                  ],
+                  "description": "This is a Dynamic variable"
                 },
                 "resourceType": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Which resourcetype/ intent type this attribute is of. e.g. mysql/ s3"
                 },
                 "resourceName": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Which resource/ intent this attribute is of. Name of the json without the extension"
                 },
                 "attribute": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Attribute of the resource. e.g. bucket_name"
                 }
               },
               "required": [
                 "type",
                 "resourceType",
                 "resourceName",
+                "attribute"
+              ]
+            },
+            "VariableForCredentials": {
+              "type": "object",
+              "description": "Variable which contains reference to credential of other resources created by Facets",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "credential"
+                  ],
+                  "description": "This is a Credential variable"
+                },
+                "permissionName": {
+                  "type": "string",
+                  "description": "Reference to the permission block"
+                },
+                "attribute": {
+                  "type": "string",
+                  "description": "Which credential part to wire. e.g. Username/ Password"
+                }
+              },
+              "required": [
+                "type",
+                "permissionName",
                 "attribute"
               ]
             }
