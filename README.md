@@ -21,3 +21,14 @@ stack.json
 "$schema": "https://docs.facets.cloud/schemas/stack.schema",
 }
 ```
+
+### Filename
+features.json
+
+Default feature set to enable/ disable
+### Schema
+```
+{
+"$schema": "https://docs.facets.cloud/schemas/features.schema",
+}
+```

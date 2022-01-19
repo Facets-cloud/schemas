@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Default Features to be enabled/disabled",
+  "properties": {
+    "spec": {
+      "type": "object",
+      "properties": {
+        "newrelic_infra_monitoring": {
+          "type": "boolean"
+        },
+        "pod_dumps_archival": {
+          "type": "boolean"
+        },
+        "pmm": {
+          "type": "boolean"
+        },
+        "choas_testing": {
+          "type": "boolean"
+        },
+        "spot_fleet": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "newrelic_infra_monitoring",
+        "pod_dumps_archival",
+        "pmm",
+        "choas_testing",
+        "spot_fleet"
+      ]
+    }
+  },
+  "required": [
+    "spec"
+  ]
+}
