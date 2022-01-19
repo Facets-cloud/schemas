@@ -15,7 +15,7 @@ You can get the sense of supported intent by reading the folder name inside whic
 ## Schema level configurations
 ### Filename 
 stack.json
-
+### Schema
 ```
 {
 "$schema": "https://docs.facets.cloud/schemas/stack.schema",
