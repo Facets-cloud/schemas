@@ -1,0 +1,10 @@
+{
+  "$schema": "../../cronjob/instances/cronjob.schema",
+  "apiVersion": "v2",
+  "kind": "facets.modules.common.application.cronjob",
+  "spec": {
+    "runtime": {
+      "schedule": ""
+    }
+  }
+}

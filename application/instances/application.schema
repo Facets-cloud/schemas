@@ -4,6 +4,13 @@
   "title": "Define Application Intents",
   "allOf": [{ "$ref": "../../jobs/instances/job.schema" }],
   "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "facets.modules.common.application"
+      ],
+      "description": "Facets Module Type"
+    },
     "spec": {
       "type": "object",
       "properties": {
@@ -41,7 +48,7 @@
           "required": [
             "rules"
           ]
-        },
+        }
       },
       "required": [
         "loadbalancing"
