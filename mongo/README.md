@@ -8,12 +8,33 @@ An Intent providing tshirt sizing for the Mongo Instances
 ### Defined by
 
 Central Platform/DevOps Teams
+### Filename
+sizing.json
 
-## Schema location
+### Schema location
 Include this in your json file to get autocomplete
 ```
 {
 "$schema": "https://docs.facets.cloud/schemas/mongo/sizing.schema",
+}
+```
+
+## Disaster Recovery
+
+An Intent providing tshirt sizing for the Mongo Instances
+
+### Defined by
+
+Central Platform/DevOps Teams
+
+### Filename
+disaster-recovery.json
+
+### Schema location
+Include this in your json file to get autocomplete
+```
+{
+"$schema": "https://docs.facets.cloud/schemas/mongo/disaster-recovery.schema",
 }
 ```
 
@@ -26,7 +47,10 @@ This is used to define an always running autoscaling service.
 
 Individual Developers/ Development teams
 
-## Schema location
+### Filename
+<mongo-service-name>.json
+
+### Schema location
 Include this in your json file to get autocomplete
 ```
 {
