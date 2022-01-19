@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Specify the backup frequency of the Mongo Disks",
+  "properties": {
+    "enabled": {
+      "type": "boolean",
+      "description": "Enabled or disabled"
+    },
+    "creationStrategy": {
+      "type": "object",
+      "description": "At what frequency to trigger",
+      "properties": {
+        "triggerSchedule": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string",
+              "description": "Cron patterns"
+            }
+          ]
+        }
+      },
+      "required": [
+        "triggerSchedule"
+      ]
+    },
+    "retentionStrategy": {
+      "type": "object",
+      "properties": {
+        "triggerSchedule": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string",
+              "description": "Cron patterns"
+            }
+          ]
+        },
+        "rollingWindow": {
+          "type": "object",
+          "properties": {
+            "hours": {
+              "type": "integer"
+            },
+            "days": {
+              "type": "integer"
+            },
+            "weeks": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "hours",
+            "days",
+            "weeks"
+          ]
+        },
+        "incrementalWindow": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "triggerSchedule",
+        "rollingWindow",
+        "incrementalWindow"
+      ]
+    }
+  },
+  "required": [
+    "enabled",
+    "creationStrategy",
+    "retentionStrategy"
+  ]
+}

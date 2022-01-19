@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Define Mongo Intents",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Service name for other applications discover this mongo"
+    },
+    "k8s_service_names": {
+      "type": "array",
+      "description": "Additional names for the master",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "k8s_slave_service_names": {
+      "type": "array",
+      "description": "Additional names for the slave",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "size": {
+      "type": "string",
+      "description": "Size of the mongo as described in sizing json"
+    }
+  },
+  "required": [
+    "name",
+    "k8s_service_names",
+    "k8s_slave_service_names",
+    "size"
+  ]
+}
