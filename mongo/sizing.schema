@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Sizing for Mongo Intents",
+  "properties": {
+    "Sample": {
+      "type": "object",
+      "description": "A Sample TShirt sizing with name Sample, You can create multiple such names with keys like LARGE, SMALL etc.",
+      "properties": {
+        "podCPULimit": {
+          "type": "integer",
+          "description": "Number of CPUs to request for this size"
+        },
+        "podMemoryLimit": {
+          "type": "integer",
+          "description": "Amount of memory to request for this size"
+        },
+        "volumeSize": {
+          "type": "integer",
+          "description": "Volume size in GB to request for this size enum"
+        }
+      },
+      "required": [
+        "podCPULimit",
+        "podMemoryLimit"
+      ]
+    }
+  },
+  "required": [
+  ]
+}

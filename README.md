@@ -15,7 +15,8 @@ You can get the sense of supported intent by reading the folder name inside whic
 ## Schema level configurations
 ### Filename 
 stack.json
-### Schema
+### Schema Location
+Include this in your json file to get autocomplete
 ```
 {
 "$schema": "https://docs.facets.cloud/schemas/stack.schema",
@@ -26,7 +27,8 @@ stack.json
 features.json
 
 Default feature set to enable/ disable
-### Schema
+### Schema Location
+Include this in your json file to get autocomplete
 ```
 {
 "$schema": "https://docs.facets.cloud/schemas/features.schema",
