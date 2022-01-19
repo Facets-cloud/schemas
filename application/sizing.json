@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "SAMPLE_TSHIRT_SIZING": {
+      "type": "object",
+      "properties": {
+        "podCPULimit": {
+          "type": "integer"
+        },
+        "podMemoryLimit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "podCPULimit",
+        "podMemoryLimit"
+      ]
+    }
+  },
+  "required": [
+  ]
+}
