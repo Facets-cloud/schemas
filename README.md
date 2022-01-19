@@ -10,4 +10,14 @@ Each Intent belongs to a folder. And it has some central specifications and an i
 
 ## How to read this documentation?
 
-You can get the sense of supported intent by reading the folder name inside which you will find schema files defining all the options available in that intent. 
+You can get the sense of supported intent by reading the folder name inside which you will find schema files defining all the options available in that intent.
+
+## Schema level configurations
+### Filename 
+stack.json
+
+```
+{
+"$schema": "https://docs.facets.cloud/schemas/stack.schema",
+}
+```
