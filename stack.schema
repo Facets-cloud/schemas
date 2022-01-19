@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Stack Configurations",
+  "properties": {
+    "composition": {
+      "type": "object",
+      "description": "Plugins in use for this stack",
+      "properties": {
+        "plugins": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the plugin"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "plugins"
+      ]
+    },
+    "clusterVariablesMeta": {
+      "type": "object",
+      "description": "Variables and Secrets valid for the whole stack. Key are the names of var/secret",
+      "properties": {
+        "SampleSecretOrVariable": {
+          "type": "object",
+          "description": "Sample key for a variable/secret",
+          "properties": {
+            "secret": {
+              "type": "boolean",
+              "description": "Is this a secret"
+            },
+            "value": {
+              "type": "string",
+              "description": "Default value of the secret/variable"
+            },
+            "exclude_from_app_env": {
+              "type": "boolean",
+              "description": "Should this be wired to applications"
+            }
+          },
+          "required": [
+            "secret",
+            "value"
+          ]
+        }
+      },
+      "required": [
+      ]
+    },
+    "stackVariables": {
+      "type": "object"
+    },
+    "componentVersions": {
+      "type": "object",
+      "description": "Version of Components to hardcode",
+      "properties": {
+        "KUBERNETES": {
+          "type": "string",
+          "enum": [
+            "1.19",
+            "1.20",
+            "1.21"
+          ],
+          "description": "Which version of Kubernetes"
+        }
+      },
+      "required": [
+        "KUBERNETES"
+      ]
+    }
+  },
+  "required": [
+    "composition",
+    "clusterVariablesMeta",
+    "componentVersions"
+  ]
+}
