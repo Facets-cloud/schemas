@@ -10,7 +10,7 @@ An Intent providing tshirt sizing for the applications
 Central Platform/DevOps Teams
 
 ### Filename
-sizing.<optional-namespace>.json
+sizing.{optional-namespace}.json
 
 ### Schema location
 Include this in your json file to get autocomplete
@@ -28,7 +28,8 @@ This is used to define an always running autoscaling service.
 ### Defined by
 
 Individual Developers/ Development teams
-
+### Filename
+{application-name}.json
 ### Schema location
 Include this in your json file to get autocomplete
 ```
