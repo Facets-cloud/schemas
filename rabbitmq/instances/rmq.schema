@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "RMQ Object",
+  "properties": {
+    "require_lb": {
+      "type": "boolean",
+      "description": "Require an lb or not"
+    },
+    "name": {
+      "type": "string",
+      "description": "Service name for RMQ"
+    },
+    "k8s_service_names": {
+      "type": "array",
+      "description": "Additional Service names",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "size": {
+      "type": "string",
+      "description": "T Shirt Sizing"
+    },
+    "vhosts": {
+      "type": "array",
+      "description": "Vhosts for RMQ",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      ]
+    },
+    "exchanges": {
+      "type": "array",
+      "description": "Exchange definitions for RMQ",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "vhost": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "durable": {
+              "type": "boolean"
+            },
+            "auto_delete": {
+              "type": "boolean"
+            },
+            "internal": {
+              "type": "boolean"
+            },
+            "arguments": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "name",
+            "vhost",
+            "type",
+            "durable",
+            "auto_delete",
+            "internal",
+            "arguments"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "require_lb",
+    "name",
+    "k8s_service_names",
+    "size",
+    "vhosts",
+    "exchanges"
+  ]
+}
