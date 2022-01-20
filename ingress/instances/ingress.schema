@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Definition for an ingress",
+  "properties": {
+    "apiVersion": {
+      "type": "string",
+      "enum": ["v2"]
+    },
+    "domains": {
+      "type": "array",
+      "description": "Custom domains to map to the ingress",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "alias": {
+              "type": "string",
+              "description": "A logical name to reference the custom domain"
+            },
+            "domain": {
+              "type": "string",
+              "description": "The FQDN of the domain to map"
+            },
+            "certificateReference": {
+              "type": "string",
+              "description": "Managed SSL certificate reference valid for the cusomt domain"
+            }
+          },
+          "required": [
+            "alias",
+            "domain",
+            "certificateReference"
+          ]
+        }
+      ]
+    },
+    "force_ssl_redirection": {
+      "type": "boolean",
+      "description": "Enable/disable HTTP to HTTPS redirection. Default: true"
+    },
+    "private": {
+      "type": "boolean",
+      "description": "Mark ingress as private (Not internet facing)"
+    }
+  },
+  "required": [
+    "apiVersion"
+  ]
+}
