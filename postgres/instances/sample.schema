@@ -8,7 +8,7 @@
     },
     "kind": {
       "type": "string",
-      "enum": "facets.modules.common.postgres"
+      "enum": ["facets.modules.common.postgres"]
     },
     "metadata": {
       "type": "object",
