@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string",
+      "enum": ["v1"]
+    },
+    "kind": {
+      "type": "string",
+      "enum": "facets.modules.common.postgres"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the postgres instance"
+        },
+        "tags": {
+          "type": "object",
+          "description": "Tags for the postgres instance"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "flavour": {
+          "type": "string",
+          "enum": ["aurora"]
+        },
+        "component_version": {
+          "type": "string",
+          "description": "Postgres version"
+        },
+        "databses": {
+          "type": "array",
+          "items": {}
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the postgres instance"
+        },
+        "reader_count": {
+          "type": "integer",
+          "description": "Count of reader postgres instances"
+        },
+        "reader_service_names": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string",
+              "description": "K8s service names for the reader instances"
+            }
+          ]
+        },
+        "reader_size": {
+          "type": "string",
+          "description": "Sizing for the reader instances"
+        },
+        "writer_count": {
+          "type": "integer",
+          "description": "Count of writer postgres instances"
+        },
+        "writer_service_names": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string",
+              "description": "K8s service names for the writer instances"
+            }
+          ]
+        },
+        "writer_size": {
+          "type": "string",
+          "description": "Sizing for the writer instances"
+        }
+      },
+      "required": [
+        "flavour",
+        "component_version",
+        "databses",
+        "name",
+        "reader_count",
+        "reader_service_names",
+        "reader_size",
+        "writer_count",
+        "writer_service_names",
+        "writer_size"
+      ]
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ]
+}
