@@ -1,0 +1,5 @@
+{
+  "type": "object",
+  "additionalProperties": { "type": "string" },
+  "description": "Map of t-shirt sizing names to db instnace types"
+}
