@@ -107,6 +107,22 @@
                 },
                 "readinessUrl": {
                   "type": "string"
+                },
+                "livenessExecCommand": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      }
+                     ]
+                },
+                "readinessExecCommand": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      }
+                    ]
                 }
               },
               "required": [
