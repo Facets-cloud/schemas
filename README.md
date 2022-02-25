@@ -34,3 +34,7 @@ Include this in your json file to get autocomplete
 "$schema": "https://docs.facets.cloud/schemas/features.schema",
 }
 ```
+
+### For IntelliJ IDEA
+![IntelliJ Idea Filetypes](ReadmeImages/ideafiletypes.png)
+
