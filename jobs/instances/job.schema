@@ -35,7 +35,7 @@
               "type": "string",
               "enum": [
                 "RollingUpdate",
-                "ReCreate"
+                "Recreate"
               ],
               "description": "Strategy to apply when releasing this application"
             },
