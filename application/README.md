@@ -10,7 +10,7 @@ An Intent providing tshirt sizing for the applications
 Central Platform/DevOps Teams
 
 ### Filename
-sizing.{optional-namespace}.json
+sizing.{namespace}.json
 
 ### Schema location
 Include this in your json file to get autocomplete
