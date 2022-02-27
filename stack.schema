@@ -70,8 +70,7 @@
           "type": "string",
           "enum": [
             "1.19",
-            "1.20",
-            "1.21"
+            "1.17"           
           ],
           "description": "Which version of Kubernetes"
         }
