@@ -35,6 +35,17 @@ Include this in your json file to get autocomplete
 }
 ```
 
-### For IntelliJ IDEA
+| Directory | Filename      | Description                            | Schema Location                                                                 |
+|-----------|---------------|----------------------------------------|---------------------------------------------------------------------------------|
+| /         | features.json | Default feature set to enable/ disable | ```"$schema": "https://docs.facets.cloud/schemas/features.schema"``` |
+| /         | stack.json    | Global Variables and Secrets |    ```"$schema": "https://docs.facets.cloud/schemas/stack.schema"```                                                                             |
+| /application         | sizing.{namespace}.json    | An Intent providing tshirt sizing for the applications|    ```"$schema": "https://docs.facets.cloud/schemas/application/sizing.schema"```                                                                             |
+| /application/instances         | {application-name}.json    | An Intent for an application/microservice|    ```"$schema": "https://docs.facets.cloud/schemas/application/instances/application.schema"```                                                                             |
+| /helm/instances         | {chart-name}.json    | An Intent for installing a helm chart|    ```"$schema": "https://docs.facets.cloud/schemas/helm/instances/helm.schema"```                                                                             |
+
+### To enable auto complete in Intellij
+
+Add JSON file association to .schema file like shown in the image below.
+
 ![IntelliJ Idea Filetypes](ReadmeImages/ideafiletypes.png)
 

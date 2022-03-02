@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "flavor": {
+      "type": "string"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "chart_uri": {
+          "type": "string"
+        },
+        "env": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attribute": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "attribute"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attribute": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "attribute"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "chart_uri",
+        "env"
+      ]
+    }
+  },
+  "required": [
+    "flavor",
+    "spec"
+  ]
+}
