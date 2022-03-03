@@ -2,14 +2,41 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
+    "$schema": {
+      "type": "string"
+    },
     "flavor": {
       "type": "string"
     },
     "spec": {
       "type": "object",
       "properties": {
-        "chart_uri": {
-          "type": "string"
+        "helm": {
+          "type": "object",
+          "description": "See description of these fields at https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release",
+          "properties": {
+            "chart": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "wait": {
+              "type": "boolean"
+            },
+            "timeout": {
+              "type": "integer"
+            },
+            "repository": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "chart"
+          ]
         },
         "env": {
           "type": "array",
@@ -42,26 +69,27 @@
                 "type": {
                   "type": "string"
                 },
-                "attribute": {
+                "default": {
                   "type": "string"
                 }
               },
               "required": [
                 "name",
                 "type",
-                "attribute"
+                "default"
               ]
             }
           ]
         }
       },
       "required": [
-        "chart_uri",
+        "helm",
         "env"
       ]
     }
   },
   "required": [
+    "$schema",
     "flavor",
     "spec"
   ]
