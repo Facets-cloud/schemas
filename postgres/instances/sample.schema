@@ -1,89 +1,110 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "apiVersion": {
-      "type": "string",
-      "enum": ["v1"]
+  "$schema":"http://json-schema.org/draft-04/schema#",
+  "type":"object",
+  "properties":{
+    "apiVersion":{
+      "type":"string",
+      "enum":[
+        "v1"
+      ]
     },
-    "kind": {
-      "type": "string",
-      "enum": ["facets.modules.common.postgres"]
+    "kind":{
+      "type":"string",
+      "enum":[
+        "facets.modules.common.postgres"
+      ]
     },
-    "metadata": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the postgres instance"
+    "metadata":{
+      "type":"object",
+      "properties":{
+        "name":{
+          "type":"string",
+          "description":"Name of the postgres instance"
         },
-        "tags": {
-          "type": "object",
-          "description": "Tags for the postgres instance"
+        "tags":{
+          "type":"object",
+          "description":"Tags for the postgres instance"
         }
       },
-      "required": [
+      "required":[
         "name"
       ]
     },
-    "spec": {
-      "type": "object",
-      "properties": {
-        "flavour": {
-          "type": "string",
-          "enum": ["aurora"]
+    "spec":{
+      "type":"object",
+      "properties":{
+        "flavour":{
+          "type":"string",
+          "enum":[
+            "aurora"
+          ]
         },
-        "component_version": {
-          "type": "string",
-          "description": "Postgres version"
+        "component_version":{
+          "type":"string",
+          "description":"Postgres version"
         },
-        "databses": {
-          "type": "array",
-          "items": {}
+        "databases":{
+          "type":"object",
+          "additionalProperties":{
+            "type":"object",
+            "required":[
+              "schema"
+            ],
+            "properties":{
+              "schmea":{
+                "description":"List of schema to create in the database",
+                "type":"array",
+                "items":{
+                  "type":"string"
+                }
+              }
+            }
+          },
+          "description":"Map of postgres db names to database spec"
         },
-        "name": {
-          "type": "string",
-          "description": "Name of the postgres instance"
+        "name":{
+          "type":"string",
+          "description":"Name of the postgres instance"
         },
-        "reader_count": {
-          "type": "integer",
-          "description": "Count of reader postgres instances"
+        "reader_count":{
+          "type":"integer",
+          "description":"Count of reader postgres instances"
         },
-        "reader_service_names": {
-          "type": "array",
-          "items": [
+        "reader_service_names":{
+          "type":"array",
+          "items":[
             {
-              "type": "string",
-              "description": "K8s service names for the reader instances"
+              "type":"string",
+              "description":"K8s service names for the reader instances"
             }
           ]
         },
-        "reader_size": {
-          "type": "string",
-          "description": "Sizing for the reader instances"
+        "reader_size":{
+          "type":"string",
+          "description":"Sizing for the reader instances"
         },
-        "writer_count": {
-          "type": "integer",
-          "description": "Count of writer postgres instances"
+        "writer_count":{
+          "type":"integer",
+          "description":"Count of writer postgres instances"
         },
-        "writer_service_names": {
-          "type": "array",
-          "items": [
+        "writer_service_names":{
+          "type":"array",
+          "items":[
             {
-              "type": "string",
-              "description": "K8s service names for the writer instances"
+              "type":"string",
+              "description":"K8s service names for the writer instances"
             }
           ]
         },
-        "writer_size": {
-          "type": "string",
-          "description": "Sizing for the writer instances"
+        "writer_size":{
+          "type":"string",
+          "description":"Sizing for the writer instances"
         }
       },
-      "required": [
+      "required":[
         "flavour",
         "component_version",
-        "databses",
+        "databases",
         "name",
         "reader_count",
         "reader_service_names",
@@ -94,7 +115,7 @@
       ]
     }
   },
-  "required": [
+  "required":[
     "apiVersion",
     "kind",
     "metadata",
