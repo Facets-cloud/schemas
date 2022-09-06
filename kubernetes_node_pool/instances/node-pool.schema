@@ -5,6 +5,73 @@
     "flavor": {
       "type": "string"
     },
+    "advanced": {
+      "type": "object",
+      "properties": {
+        "node_config": {
+          "type": "object",
+          "properties": {
+            "preemptible": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "preemptible"
+          ]
+        },
+        "gke": {
+          "type": "object",
+          "properties": {
+            "max_pods_per_node": {
+              "type": "integer"
+            },
+            "node_locations": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "node_config": {
+              "type": "object",
+              "properties": {
+                "preemptible": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "preemptible"
+              ]
+            },
+            "network_config": {
+              "type": "object",
+              "properties": {
+                "pod_ipv4_cidr_block": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "pod_ipv4_cidr_block"
+              ]
+            }
+          },
+          "required": [
+            "max_pods_per_node",
+            "node_locations",
+            "node_config",
+            "network_config"
+          ]
+        }
+      },
+      "required": [
+        "node_config",
+        "gke"
+      ]
+    },
     "spec": {
       "type": "object",
       "properties": {
@@ -32,15 +99,15 @@
         "instance_type",
         "min_node_count",
         "max_node_count",
-        "disk_size"
+        "disk_size",
+        "taints",
+        "labels"
       ]
-    },
-    "advanced": {
-      "type": "object"
     }
   },
   "required": [
     "flavor",
+    "advanced",
     "spec"
   ]
 }
