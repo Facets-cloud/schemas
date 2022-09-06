@@ -8,17 +8,6 @@
     "advanced": {
       "type": "object",
       "properties": {
-        "node_config": {
-          "type": "object",
-          "properties": {
-            "preemptible": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "preemptible"
-          ]
-        },
         "gke": {
           "type": "object",
           "properties": {
@@ -42,10 +31,7 @@
                 "preemptible": {
                   "type": "boolean"
                 }
-              },
-              "required": [
-                "preemptible"
-              ]
+              }
             },
             "network_config": {
               "type": "object",
@@ -53,24 +39,11 @@
                 "pod_ipv4_cidr_block": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "pod_ipv4_cidr_block"
-              ]
+              }
             }
-          },
-          "required": [
-            "max_pods_per_node",
-            "node_locations",
-            "node_config",
-            "network_config"
-          ]
+          }
         }
-      },
-      "required": [
-        "node_config",
-        "gke"
-      ]
+      }
     },
     "spec": {
       "type": "object",
