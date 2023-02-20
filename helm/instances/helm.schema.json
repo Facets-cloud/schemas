@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "flavor": {
+      "type": "string"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "helm": {
+          "type": "object",
+          "description": "See description of these fields at https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release",
+          "properties": {
+            "chart": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "wait": {
+              "type": "boolean"
+            },
+            "timeout": {
+              "type": "integer"
+            },
+            "repository": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "chart"
+          ]
+        },
+        "env": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "attribute": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "attribute"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "default": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "default"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "helm",
+        "env"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "flavor",
+    "spec"
+  ]
+}
